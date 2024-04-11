@@ -1,0 +1,8 @@
+%h1 Welcome to the Posts Index!
+
+-if current_user
+    %h1 User logged in successfully
+-else 
+    %li= link_to "Sign up", new_user_registration_path
+    %li= link_to "Sign in", new_user_session_path    
+    
