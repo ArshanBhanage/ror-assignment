@@ -1,0 +1,2 @@
+module Receptionist::ReceptionistsHelper
+end

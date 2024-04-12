@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: 1
+  doctor_id: 1
+  appointment_date: 2024-04-12 18:34:02
+  reason: MyText
+
+two:
+  patient_id: 1
+  doctor_id: 1
+  appointment_date: 2024-04-12 18:34:02
+  reason: MyText
