@@ -12,6 +12,8 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
+    @doctors = User.where(role: 'doctor') 
+    @patient = Patient.find(params[:patient_id])
     @appointment = Appointment.new
   end
 

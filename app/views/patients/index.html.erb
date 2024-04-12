@@ -8,7 +8,10 @@
     <p>
       <%= link_to "Show this patient", patient %>
     </p>
+
+    <%= link_to "Book appointment", new_appointment_path(patient_id: patient.id) %>
   <% end %>
 </div>
 
 <%= link_to "New patient", new_patient_path %>
+

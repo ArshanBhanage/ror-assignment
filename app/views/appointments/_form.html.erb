@@ -11,14 +11,11 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :patient_id, style: "display: block" %>
-    <%= form.number_field :patient_id %>
-  </div>
+  <%= form.hidden_field :patient_id, value: @patient.id if @patient %>
 
   <div>
-    <%= form.label :doctor_id, style: "display: block" %>
-    <%= form.number_field :doctor_id %>
+    <%= form.label :doctor_id, class: 'form-control', style: "display: block" %>
+    <%= form.collection_select :doctor_id, @doctors, :id, :name %>
   </div>
 
   <div>
