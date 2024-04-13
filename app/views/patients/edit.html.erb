@@ -1,10 +1,8 @@
-<h1>Editing patient</h1>
-
-<%= render "form", patient: @patient %>
-
-<br>
-
-<div>
-  <%= link_to "Show this patient", @patient %> |
-  <%= link_to "Back to patients", patients_path %>
+<div class="container px-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mb-4">Edit patient details</h2>
+      <%= render "form", patient: @patient %>
+    </div>
+  </div>
 </div>

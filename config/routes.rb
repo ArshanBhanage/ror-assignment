@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   resources :appointments
   resources :patients  
 
+  get 'upcoming', to: 'appointments#upcoming', as: 'upcoming_appointments'
+  get 'past_appointments/:patient_id', to: 'appointments#past_appointments', as: 'past_appointments'
+
   namespace :receptionist do
     get 'dashboard', to: 'receptionists#dashboard', as: 'dashboard'
-    get 'past_appointments/:patient_id', to: 'receptionists#past_appointments', as: 'past_appointments'
     # get 'get_contacts', to: 'user_actions#get_contacts'
   end
 

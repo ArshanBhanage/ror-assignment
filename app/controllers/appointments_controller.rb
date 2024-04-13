@@ -10,6 +10,15 @@ class AppointmentsController < ApplicationController
   def show
   end
 
+  def past_appointments
+    @appointments = Appointment.where(patient_id: params[:patient_id])
+  end
+
+  def upcoming
+    @appointments = Appointment.where("appointment_date >= ?", Time.now).order(:appointment_date)
+  end
+
+
   # GET /appointments/new
   def new
     @doctors = User.where(role: 'doctor') 
@@ -19,6 +28,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1/edit
   def edit
+    @doctors = User.where(role: 'doctor')    
   end
 
   # POST /appointments or /appointments.json

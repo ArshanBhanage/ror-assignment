@@ -1,11 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
 <div class="container">
   <div class="row gx-5">
     <div class="col">
       <div class="p-3 border bg-light">
         <div class="d-flex justify-content-between">
-          <div>Patients</div>
+          <div><h3>Welcome <%= current_user.name %></h3></div>
           <%= link_to "Add a Patient Id", new_patient_path, class: "btn btn-secondary" %>
         </div>
+        <p>Please find all the patients below</p>
       </div>
       <table id= "patients" class="table table-striped" style="width:100%">
         <thead>
@@ -39,10 +42,10 @@
                   </button>
                   <ul class="dropdown-menu">
                     <%= link_to "Edit this patient", edit_patient_path(patient), class: "dropdown-item" %>
-                    <%= link_to "View past appointments", receptionist_past_appointments_path(patient_id: patient.id), class: "dropdown-item" %>
+                    <%= link_to "View past appointments", past_appointments_path(patient_id: patient.id), class: "dropdown-item" %>
                     <%# <li><a class="dropdown-item" href="#">Something else here</a></li> %>
                     <li><hr class="dropdown-divider"></li>
-                    <%= button_to "Destroy this patient", @patient, method: :delete, class: "dropdown-item"%>
+                    <%= button_to "Destroy this patient", patient, method: :delete, class: "dropdown-item"%>
                   </ul>
                 </div>              
               </td>
