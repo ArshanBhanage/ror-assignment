@@ -12,4 +12,13 @@ class User < ApplicationRecord
   def name
     return self.first_name + " " + self.last_name
   end
+
+  def doctor?
+    role == 'doctor'
+  end
+
+  def receptionist?
+    role == 'receptionist'
+  end
+    
 end

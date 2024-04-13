@@ -1,38 +1,76 @@
-<%= link_to "Add a patient Id", new_patient_path %> 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<div class="container">
+  <div class="row gx-5">
+    <div class="col">
+      <div class="p-3 border bg-light">
+        <div class="d-flex justify-content-between">
+          <div>Patients</div>
+          <%= link_to "Add a Patient Id", new_patient_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <table id= "patients" class="table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @patients.each do |patient| %>
+            <tr>
+              <th scope="row"><%= patient.id%></th>
+              <td><%= patient.name%></td>
+              <td><%= patient.dob%></td>
+              <td><%= patient.gender%></td>
+              <td><%= patient.address%></td>
+              <td><%= patient.phone%></td>
+              <td><%= patient.email%></td>
+              <td><%= link_to "Book Appointment", new_appointment_path(patient_id: patient.id), class: "text-secondary" %></td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Action
+                  </button>
+                  <ul class="dropdown-menu">
+                    <%= link_to "Edit this patient", edit_patient_path(patient), class: "dropdown-item" %>
+                    <%= link_to "View past appointments", receptionist_past_appointments_path(patient_id: patient.id), class: "dropdown-item" %>
+                    <%# <li><a class="dropdown-item" href="#">Something else here</a></li> %>
+                    <li><hr class="dropdown-divider"></li>
+                    <%= button_to "Destroy this patient", @patient, method: :delete, class: "dropdown-item"%>
+                  </ul>
+                </div>              
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
-</nav>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $.fn.dataTable.ext.errMode = 'none';
+
+    if (!$.fn.DataTable.isDataTable('#patients')) {
+      $('#patients').DataTable().destroy();
+      $('#patients').DataTable();
+    }
+
+    if (!$.fn.DataTable.isDataTable('#appointments')) {
+      $('#appointments').DataTable().destroy();
+      $('#appointments').DataTable();
+    }
+
+  });
+
+</script>

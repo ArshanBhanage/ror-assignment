@@ -1,12 +1,11 @@
 class Receptionist::ReceptionistsController < ApplicationController
     def dashboard
-
+        @patients = Patient.all 
+        @appointments = Appointment.all
     end
 
-    def add_patient
-    end
-
-    def add_appointment
+    def past_appointments
+        @appointments = Appointment.where(patient_id: params[:patient_id])
     end
 
 end

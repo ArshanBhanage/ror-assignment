@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   resources :appointments
-  resources :patients
+  resources :patients  
 
   namespace :receptionist do
     get 'dashboard', to: 'receptionists#dashboard', as: 'dashboard'
-    get 'add_appointment', to: 'receptionists#add_appointment', as: 'add_appointment'
-    get 'add_patient', to: 'receptionists#add_patient', as: 'add_patient'
+    get 'past_appointments/:patient_id', to: 'receptionists#past_appointments', as: 'past_appointments'
     # get 'get_contacts', to: 'user_actions#get_contacts'
   end
 
   namespace :doctor do
+    get 'dashboard', to: 'doctors#dashboard', as: 'dashboard'
     # post 'add_phone_to_spam', to: 'user_actions#add_phone_to_spam'
     # get 'get_contacts', to: 'user_actions#get_contacts'
   end
