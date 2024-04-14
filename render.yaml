@@ -1,12 +1,12 @@
 databases:
-  - name: psql
-    databaseName: psql
+  - name: rorassignment
+    databaseName: rorassignment
     user: arshan
     plan: free
 
 services:
   - type: web
-    name: mysite
+    name: psql
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
