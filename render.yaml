@@ -1,6 +1,6 @@
 databases:
-  - name: rorassignment
-    databaseName: rorassignment
+  - name: psql
+    databaseName: psql
     user: arshan
     plan: free
 
