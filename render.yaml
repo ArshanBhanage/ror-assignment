@@ -1,6 +1,6 @@
 databases:
-  - name: ror-assignment
-    databaseName: ror-assignment
+  - name: rorassignment
+    databaseName: rorassignment
     user: arshan
     plan: free
 
