@@ -86,3 +86,9 @@ gem "sass", "~> 3.7"
 gem "ransack", "~> 4.1"
 
 gem "kaminari", "~> 1.2"
+
+gem "faker", "~> 3.3"
+
+gem "chartkick", "~> 5.0"
+
+gem "groupdate", "~> 6.4"

@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments or /appointments.json
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.all.page(params[:page]).per(10)
   end
 
   # GET /appointments/1 or /appointments/1.json
@@ -11,11 +11,11 @@ class AppointmentsController < ApplicationController
   end
 
   def past_appointments
-    @appointments = Appointment.where(patient_id: params[:patient_id])
+    @appointments = Appointment.where(patient_id: params[:patient_id]).page(params[:page]).per(10)
   end
 
   def upcoming
-    @appointments = Appointment.where("appointment_date >= ?", Time.now).order(:appointment_date)
+    @appointments = Appointment.where("appointment_date >= ?", Time.now).order(:appointment_date).page(params[:page]).per(10)
   end
 
 

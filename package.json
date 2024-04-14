@@ -17,6 +17,8 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "chart.js": "^4.4.2",
+    "chartkick": "^5.0.1",
     "esbuild": "^0.20.2",
     "postcss": "^8.4.38",
     "postcss-cli": "^8.3.1"
