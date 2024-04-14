@@ -7,13 +7,11 @@ Rails.application.routes.draw do
 
   namespace :receptionist do
     get 'dashboard', to: 'receptionists#dashboard', as: 'dashboard'
-    # get 'get_contacts', to: 'user_actions#get_contacts'
   end
 
   namespace :doctor do
     get 'dashboard', to: 'doctors#dashboard', as: 'dashboard'
-    # post 'add_phone_to_spam', to: 'user_actions#add_phone_to_spam'
-    # get 'get_contacts', to: 'user_actions#get_contacts'
+    get 'analytics', to: 'doctors#analytics', as: 'analytics'
   end
 
 

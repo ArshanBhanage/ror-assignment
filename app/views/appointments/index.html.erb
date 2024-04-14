@@ -1,3 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render 'appointments' %>
+<div class="container">
+  <div class="row gx-5">
+    <div class="col">
+      <div class="p-3 border bg-light">
+        <div class="d-flex justify-content-between">
+          Appointments
+          <%= search_form_for @q, url: :appointments, class: "d-flex" do |f| %>
+            <%= f.search_field :user_first_name_or_patient_first_name_or_reason_cont, placeholder: "Search", class: "form-control me-2" %>
+            <%= f.submit "Search", class: "btn btn-outline-success" %>
+          <% end %>          
+        </div>
+      </div>
+      <%= render 'appointments' %>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,6 @@
       <table id= "patients" class="table table-striped" style="width:100%">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">DOB</th>
             <th scope="col">Gender</th>
@@ -29,7 +28,6 @@
         <tbody>
           <% @patients.each do |patient| %>
             <tr>
-              <th scope="row"><%= patient.id%></th>
               <td><%= patient.name%></td>
               <td><%= patient.dob%></td>
               <td><%= patient.gender%></td>

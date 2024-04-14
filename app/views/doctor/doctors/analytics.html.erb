@@ -1,0 +1,28 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<div class="container overflow-hidden">
+  <div class="row gy-5">
+    <div class="col-6">
+      <p class="lead">
+        Patients registered and Days
+      </p>    
+      <%= column_chart @patients_per_day, library: { scales: { x: { type: 'time', time: { unit: 'day' } } } } %>
+    </div>
+    <div class="col-6">
+      <p class="lead">
+        Patients by Gender 
+      </p>    
+      <%= pie_chart @gender_pie %>
+    </div>
+    <div class="col-6">
+      <p class="lead">
+        Appointment per month trend
+      </p>    
+      <%= line_chart @appointments_per_month %>
+    </div>
+  </div>
+</div>
+
+
+
+
