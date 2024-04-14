@@ -13,7 +13,7 @@
     <tr>
         <td><%= Patient.find(appointment.patient_id).name %></td>
         <td><%= User.find(appointment.user_id).name %></td>
-        <td><%= appointment.appointment_date.strftime("%A, %B %d, %Y") %></td>
+        <td><%= appointment.appointment_date.strftime("%A, %B %d, %Y, %H:%M") %></td>
         <td><%= appointment.reason %></td>
         <td>
           <div class="btn-group">

@@ -19,8 +19,6 @@
             <th scope="col">Address</th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -32,21 +30,6 @@
               <td><%= patient.address%></td>
               <td><%= patient.phone%></td>
               <td><%= patient.email%></td>
-              <td><%= link_to "Book Appointment", new_appointment_path(patient_id: patient.id), class: "text-secondary" %></td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Action
-                  </button>
-                  <ul class="dropdown-menu">
-                    <%= link_to "Edit this patient", edit_patient_path(patient), class: "dropdown-item" %>
-                    <%= link_to "View past appointments", past_appointments_path(patient_id: patient.id), class: "dropdown-item" %>
-                    <%# <li><a class="dropdown-item" href="#">Something else here</a></li> %>
-                    <li><hr class="dropdown-divider"></li>
-                    <%= button_to "Destroy this patient", patient, method: :delete, class: "dropdown-item"%>
-                  </ul>
-                </div>              
-              </td>
             </tr>
           <% end %>
         </tbody>
